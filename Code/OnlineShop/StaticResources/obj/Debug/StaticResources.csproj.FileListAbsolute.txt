@@ -1,0 +1,11 @@
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\bin\Debug\StaticResources.dll
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\bin\Debug\StaticResources.pdb
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\bin\Debug\en\StaticResources.resources.dll
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\obj\Debug\StaticResources.csprojAssemblyReference.cache
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\obj\Debug\StaticResources.Resources.resources
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\obj\Debug\StaticResources.Resources.en.resources
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\obj\Debug\StaticResources.csproj.GenerateResource.cache
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\obj\Debug\StaticResources.csproj.CoreCompileInputs.cache
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\obj\Debug\en\StaticResources.resources.dll
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\obj\Debug\StaticResources.dll
+C:\Users\Thao\source\repos\OnlineShop\StaticResources\obj\Debug\StaticResources.pdb

@@ -1,0 +1,257 @@
+﻿@model Model.EF.Product
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+@section header{
+    Chi tiết sản phẩm
+}
+
+
+<div class="form-group">
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <div style="display:flex">
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+            </div>
+
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Code)
+                </dt>
+
+                <dd class="form-control" style="height:auto">
+                    @Html.DisplayFor(model => model.Code)
+                </dd>
+            </div>
+
+        </div>
+
+        <div style="display:flex">
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MetaTitle)
+                </dt>
+
+                <dd class="form-control" style="height:auto">
+                    @Html.DisplayFor(model => model.MetaTitle)
+                </dd>
+            </div>
+
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd class="form-control" style="height:auto">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+            </div>
+
+        </div>
+
+        <div style="display:flex">
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Images)
+                </dt>
+
+                <dd class="form-control" style="height:auto">
+                    <img src="@Url.Content(Model.Images)" alt="Alternate Text" width="250" />
+                </dd>
+            </div>
+
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MoreImages)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.MoreImages)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd class="form-control" style="height:auto">
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PromotionPrice)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.PromotionPrice)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IncludeVAT)
+                </dt>
+
+                <dd class="form-control" style="height:auto">
+                    @Html.DisplayFor(model => model.IncludeVAT)
+                </dd>
+            </div>
+        </div>
+
+        <div style="display:flex">
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </dt>
+
+                <dd class="form-control" style="height:auto">
+                    @Html.DisplayFor(model => model.Quantity)
+                </dd>
+            </div>
+
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CategoryID)
+                </dt>
+
+                <dd class="form-control" style="height:auto">
+                    @Html.DisplayFor(model => model.CategoryID)
+                </dd>
+            </div>
+        </div>
+
+
+        <div style="display:flex">
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Detail)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.Detail)
+                </dd>
+            </div>
+
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Warranty)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.Warranty)
+                </dd>
+            </div>
+        </div>
+
+        <div style="display:flex">
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+            </div>
+
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateBy)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.CreateBy)
+                </dd>
+            </div>
+        </div>
+
+        <div style="display:flex">
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ModifiedDate)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.ModifiedDate)
+                </dd>
+            </div>
+
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ModifiedBy)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.ModifiedBy)
+                </dd>
+            </div>
+        </div>
+
+
+        <div style="display:flex">
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MetaKeywords)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.MetaKeywords)
+                </dd>
+            </div>
+
+            <div class="form-group col-md-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MetaDescriptions)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.MetaDescriptions)
+                </dd>
+            </div>
+        </div>
+
+        <div style="display:flex">
+            <div class="form-group col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+            </div>
+
+            <div class="form-group col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.TopHot)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.TopHot)
+                </dd>
+            </div>
+
+            <div class="form-group col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ViewCount)
+                </dt>
+
+                <dd class="form-control">
+                    @Html.DisplayFor(model => model.ViewCount)
+                </dd>
+            </div>
+        </div>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Trở về", "Index")
+</p>

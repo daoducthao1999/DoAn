@@ -1,0 +1,108 @@
+﻿
+@model IEnumerable<Model.EF.OrderDetail>
+@using PagedList.Mvc;
+@using Model.EF;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header{
+    Chi tiết đơn hàng
+}
+
+@section jsFooter{
+
+}
+
+@{
+    Product sp;
+    Order gh = (Order)ViewData["DonHang"];
+    OnlineShopDbContext db = new OnlineShopDbContext();
+    //OrderDetail kh = db.OrderDetails.SingleOrDefault(n => n.OrderID == gh.ID);
+}
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Người mua hàng
+        </dt>
+
+        <dd>
+            @gh.ShipName
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @gh.ShipMobile
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @gh.ShipAddress
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @gh.ShipEmail
+        </dd>
+
+
+
+    </dl>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Mã hóa đơn
+        </th>
+        <th>
+            Mã sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Thành tiền
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            @*<td>
+                    <div><img src="@Url.Content("~/Content/Image/"+item.SanPham.linkanh)" height="99" width="150" /></div>
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+ 
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Trở về", "Index")
+</div>
+
+

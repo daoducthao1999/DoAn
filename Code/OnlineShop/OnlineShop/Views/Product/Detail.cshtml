@@ -1,0 +1,240 @@
+﻿@model Model.EF.Product
+@{
+    ViewBag.Title = Model.Name;
+    ViewBag.Keywords = Model.MetaKeywords;
+    ViewBag.Descriptions = Model.MetaDescriptions;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var category = (Model.EF.ProductCategory)ViewBag.Category;
+    var relatedProducts = (List<Model.EF.Product>)ViewBag.RelatedProducts;
+}
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fa52f9173102c54"></script>
+<style>
+    div.stars {
+        width: 270px;
+        display: inline-block;
+    }
+
+    input.star {
+        display: none;
+        ;
+    }
+
+    label.star {
+        float: right;
+        padding: 10px;
+        font-size: 36px;
+        color: #444;
+        transition: all .2s;
+    }
+
+    input.star:checked ~ label.star:before {
+        content: '\f005';
+        color: #FD4;
+        transition: all .25s;
+    }
+
+    input.star-4:checked ~ label.star:before {
+        color: #FE7;
+        text-shadow: 0 0 20px #952;
+    }
+
+    input.star-4:checked ~ label.star:before {
+        color: #F62;
+    }
+
+    input.star-5:checked ~ label.star:before {
+        color: #FE7;
+        text-shadow: 0 0 20px #952;
+    }
+
+    input.star-5:checked ~ label.star:before {
+        color: #F62;
+    }
+
+    label.star:hover {
+        transform: rotate(-15deg) scale(1.3);
+    }
+
+    label.star:before {
+        content: '\f006';
+        font-family: FontAwesome
+    }
+
+</style>
+
+<div class="content">
+    <div class="content_top">
+        <div class="back-links">
+            <p><a href="/">Trang chủ</a> >>>> <a href="/san-pham/@category.MetaTitle-@category.ID">@category.Name</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        <div class="cont-desc span_1_of_2">
+            <div class="product-details">
+                <div class="grid images_3_of_2">
+                    <div id="container">
+                        <div id="products_example">
+                            <div id="products">
+                                <div class="slides_container">
+                                    <a href="#" target="_blank"><img src="@Model.Images" alt="@Model.Name" style="width:350px;height:300px;" /></a>
+
+                                </div>
+                                @*<ul class="pagination">
+                                        <li><a href="#"><img src="images/thumbnailslide-1.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-2.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-3.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-4.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-5.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-6.jpg" alt=" " /></a></li>
+                                    </ul>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="desc span_3_of_2">
+                    <h2>@Model.Name </h2>
+                    <p>@Model.Description</p>
+                    <div class="price">
+                        <p>Giá: <span>@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") : "Liên hệ")</span></p>
+                    </div>
+
+                    <div class="share-desc">
+                        <div class="share">
+                            <p>Chia sẻ:</p>
+                            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                            <div class="addthis_inline_share_toolbox"></div>
+                        </div>
+                        <div class="button"><span><a href="/them-gio-hang?productId=@Model.ID&quantity=1">Thêm vào giỏ</a></span></div>
+                        <div class="stars">
+                            <p style="font-size:15px; font-weight:bold;color:black">Đánh giá </p>
+                            <form action="">
+                                <input type="radio" class="star star-5" id="star-5" name="star">
+                                <label class="star star-5" for="star-5"></label>
+                                <input type="radio" class="star star-4" id="star-4" name="star">
+                                <label class="star star-4" for="star-4"></label>
+                                <input type="radio" class="star star-3" id="star-3" name="star">
+                                <label class="star star-3" for="star-3"></label>
+                                <input type="radio" class="star star-2" id="star-2" name="star">
+                                <label class="star star-2" for="star-2"></label>
+                                <input type="radio" class="star star-1" id="star-1" name="star">
+                                <label class="star star-1" for="star-1"></label>
+                            </form>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="wish-list">
+                        <ul>
+                            <li class="wish"><a href="#">Thêm vào yêu thích</a></li>
+                            <li class="compare"><a href="#">So sánh</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="product_desc">
+                <div id="horizontalTab">
+                    <ul class="resp-tabs-list">
+                        <li>Chi tiết</li>
+
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <div class="product-desc">
+                            @Html.Raw(Model.Detail)
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#horizontalTab').easyResponsiveTabs({
+                        type: 'default', //Types: default, vertical, accordion
+                        width: 'auto', //auto or any width like 600px
+                        fit: true   // 100% fit in a container
+                    });
+                });
+            </script>
+            <div class="content_bottom">
+                <div class="heading">
+                    <h3>Sản phẩm liên quan</h3>
+                </div>
+                <div class="see">
+                    <p><a href="/san-pham">Xem tất cả</a></p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="section group">
+                @foreach (var item in relatedProducts)
+                {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <a href="@url"><img src="@item.Images" alt=""></a>
+                        <div class="price" style="border:none">
+                            <div class="add-cart" style="float:none">
+                                <h4><a href="@url">Thêm vào giỏ</a></h4>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+        <div class="rightsidebar span_3_of_1">
+
+            @{Html.RenderAction("ProductCategory", "Product");}
+            <div class="subscribe">
+                <h2>Đăng ký bản tin</h2>
+                <p>Liên hệ với chúng tôi qua số điện thoại: 0961658137 </p>
+                <div class="signup">
+                    <form>
+                        <input type="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';"><input type="submit" value="Sign up">
+                    </form>
+                </div>
+            </div>
+            <div class="community-poll">
+                <h2>Thăm dò cộng đồng</h2>
+                <p>Lý do để bạn mua hàng trực tuyến là gì?</p>
+                <div class="poll">
+                    <form>
+                        <ul>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="1">
+                                <span class="label"><label>Vận chuyển, giao hàng thuận tiện tiện  </label></span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="2">
+                                <span class="label"><label for="vote_2">Giá thấp hơn</label></span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="3">
+                                <span class="label"><label for="vote_3">Nhiều sự lựa chọn hơn</label></span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="5">
+                                <span class="label"><label for="vote_5">Bảo mật thanh toán </label></span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="6">
+                                <span class="label">
+                                    <label for="vote_6">
+                                        Đảm bảo hoàn tiền trong 30 ngày
+                                    </label>
+                                </span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="7">
+                                <span class="label"><label for="vote_7">Khác.</label></span>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
